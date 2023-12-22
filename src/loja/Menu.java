@@ -94,7 +94,6 @@ public class Menu {
 				break;
 			case 5:
 				System.out.println("Apagar o Produto\n\n");
-				System.out.println("Apagar a Conta\n\n");
 				System.out.println("Digite o número da conta: ");
 				idProduto = leia.nextInt();
 
