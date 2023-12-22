@@ -2,12 +2,17 @@ package loja;
 
 import java.util.Scanner;
 
+
+import loja.controller.LojaController;
+import loja.model.LojaComum;
+import loja.model.LojaFilial;
+
 public class Menu {
 
 	public static void main(String[] args) {
 		Scanner leia = new Scanner(System.in);
-
-		int opcao;
+		LojaController lojas = new LojaController();
+		int opcao, tipo, dataCriacao, aniversario;
 
 		while (true) {
 
@@ -39,24 +44,61 @@ public class Menu {
 
 			switch (opcao) {
 			case 1:
-				System.out.println("Cadastrar Produto\n\n");
+				System.out.println("Cadastrar Produto");
+				System.out.print("ID do produto: ");
+				int idProduto = leia.nextInt();
+				leia.nextLine();
+				leia.skip("\\R?");
+				System.out.print("Nome do vendedor: ");
+				String nomeVendedor = leia.nextLine();
+				System.out.print("Nome do produto: ");
+				String nomeProduto = leia.nextLine();
+				System.out.print("Preço do produto: ");
+				float preco = leia.nextFloat();
+				do {
+					System.out.println("Digite o tipo da Loja (1 - Filial ou 2 - Comum(Matriz)): ");
+					tipo = leia.nextInt();
+
+				} while (tipo < 1 && tipo > 2);
+
+				switch (tipo) {
+				case 1 -> {
+					System.out.println("Digite o Aniversario da Filial: ");
+					aniversario = leia.nextInt();
+					lojas.cadastrar(new LojaFilial(lojas.gerarNumero(), nomeVendedor, nomeProduto, preco, aniversario));
+				}
+				case 2 -> {
+					System.out.println("Digite o ano de criação da sua Loja Matriz(Comum): ");
+					dataCriacao = leia.nextInt();
+					lojas.cadastrar(new LojaComum(lojas.gerarNumero(), nomeVendedor, nomeProduto, preco, dataCriacao));
+				}
+				}
 
 				break;
 			case 2:
 				System.out.println("Listar todos Produtos\n\n");
-
+				lojas.listarTodas();
 				break;
 			case 3:
 				System.out.println("Buscar Produto - por número\n\n");
-
+				System.out.println("Digite o ID do Produto: ");
+				idProduto = leia.nextInt();
+				lojas.procurarPorNumero(idProduto);
 				break;
 			case 4:
 				System.out.println("Atualizar Produto\n\n");
+				System.out.println("Digite o ID do produto: ");
+				idProduto = leia.nextInt();
+				//NAO DEU TEMPO
 
 				break;
 			case 5:
 				System.out.println("Apagar o Produto\n\n");
+				System.out.println("Apagar a Conta\n\n");
+				System.out.println("Digite o número da conta: ");
+				idProduto = leia.nextInt();
 
+				lojas.deletar(idProduto);
 				break;
 
 			default:
