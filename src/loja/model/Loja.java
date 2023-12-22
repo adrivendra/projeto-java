@@ -5,7 +5,7 @@ public abstract class Loja {
 	private int idProduto;
 	private String nomeVendedor;
 	private String nomeProduto;
-
+	private int tipo;
 	private float preco;
 
 	public Loja(int idProduto, int tipo, String nomeVendedor, String nomeProduto, float preco) {
@@ -14,7 +14,15 @@ public abstract class Loja {
 		this.nomeVendedor = nomeVendedor;
 		this.nomeProduto = nomeProduto;
 		this.preco = preco;
+		this.tipo = tipo;
+	}
 
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
 	}
 
 	public int getIdProduto() {

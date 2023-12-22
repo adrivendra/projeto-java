@@ -3,8 +3,8 @@ package loja.model;
 public class LojaComum extends Loja {
 	int dataCriacao;
 
-	public LojaComum(int idProduto, String nomeVendedor, String nomeProduto, float preco, int dataCriacao) {
-		super(idProduto, dataCriacao, nomeVendedor, nomeProduto, preco);
+	public LojaComum(int idProduto, int tipo, String nomeVendedor, String nomeProduto, float preco, int dataCriacao) {
+		super(idProduto, tipo, nomeVendedor, nomeProduto, preco);
 		this.dataCriacao = dataCriacao;
 	}
 
@@ -15,9 +15,10 @@ public class LojaComum extends Loja {
 	public void setDataCriacao(int dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
-	  @Override
-		public void visualizar() {
-			super.visualizar();
-			System.out.println("A data de criação da loja foi: " + this.dataCriacao);
-		}	
+
+	@Override
+	public void visualizar() {
+		super.visualizar();
+		System.out.println("A data de criação da loja foi: " + this.dataCriacao);
+	}
 }
