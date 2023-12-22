@@ -51,7 +51,7 @@ public class Menu {
 
 			switch (opcao) {
 			case 1:
-				System.out.println("Cadastrar Produto");
+				System.out.println("Cadastrar Produtos na Loja");
 				System.out.print("ID do produto: ");
 				idProduto = leia.nextInt();
 				leia.nextLine();
@@ -84,7 +84,7 @@ public class Menu {
 				keyPress();
 				break;
 			case 2:
-				System.out.println("Listar todos Produtos\n\n");
+				System.out.println("Listar todos Produtos da Loja\n\n");
 				lojas.listarTodas();
 				keyPress();
 				break;
@@ -138,7 +138,7 @@ public class Menu {
 				keyPress();
 				break;
 			case 5:
-				System.out.println("Apagar o Produto\n\n");
+				System.out.println("Apagar o Produto da Loja\n\n");
 				System.out.println("Digite o número da conta: ");
 				idProduto = leia.nextInt();
 
